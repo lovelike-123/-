@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>刘磊-css布局</title>
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        background-color: #eee;
+      }
+      /* * {
+        border: 1px solid black;
+      } */
+      .flex {
+        display: flex;
+      }
+      .yinying {
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+          rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+      }
+      .baise {
+        background-color: white;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+          rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+      }
+      .flex1 {
+        flex: 1;
+      }
+      .column {
+        flex-direction: column;
+      }
+      .mg8 {
+        margin: 8px;
+      }
+      .mgr8 {
+        margin-right: 8px;
+      }
+      .mgt8 {
+        margin-top: 8px;
+      }
+      .daohang {
+        padding: 10px 20px;
+        border-bottom: 1px solid grey;
+        font-size: 14px;
+        color: #666;
+      }
+      /* 当屏幕小于600px时 */
+      @media (max-width: 600px) {
+        .cebian {
+          display: none;
+        }
+        .nerong {
+          flex-direction: column;
+        }
+        .shujuqu {
+          flex-direction: column;
+        }
+        .youqu {
+          margin-left: 8px;
+        }
+        .shuju {
+          margin: 0 0 8px;
+          flex: auto;
+        }
+      }
+    </style>
+  </head>
+  <body class="flex">
+    <!-- 侧边栏-->
+    <div style="width: 200px; z-index: 2" class="baise cebian">
+      <!-- 头像栏 -->
+      <div
+        style="
+          padding: 10px;
+          align-items: center;
+          justify-content: center;
+          border-bottom: 1px solid rgb(156, 24, 24);
+        "
+        class="flex"
+      >
+        <img
+          src="https://kangwenchang.com/logo.png"
+          width="40px"
+          height="40px"
+        />
+        <div style="margin: 10px">刘磊-css布局</div>
+      </div>
+
+      <!-- 导航 -->
+      <div class="flex1">
+        <div class="daohang"><h1>hello world</h1></div>
+        <div class="daohang">我的</div>
+        <div class="daohang">第一个</div>
+        <div class="daohang">刘磊-css布局</div>
+      </div>
+    </div>
+    <!-- 主区域-->
+    <div class="flex1 flex column">
+      <!-- 头部栏-->
+      <div style="height: 60px; z-index: 1" class="baise"></div>
+      <!-- 内容栏-->
+      <div style="overflow: auto" class="flex1 flex nerong">
+        <!-- 左边-->
+        <div style="flex: 3" class="flex column mg8">
+          <!-- 数据区-->
+          <div class="flex shujuqu">
+            <!-- 数据块 -->
+            <div style="height: 100px" class="shuju flex1 baise mgr8"></div>
+            <div style="height: 100px" class="shuju flex1 baise mgr8"></div>
+            <div style="height: 100px" class="shuju flex1 baise mgr8"></div>
+            <div style="height: 100px" class="shuju flex1 baise"></div>
+          </div>
+          <!-- 列表区 -->
+          <div class="flex column">
+            <!-- 列表项 -->
+            <div style="height: 160px" class="baise mgt8"></div>
+            <div style="height: 160px" class="baise mgt8"></div>
+            <div style="height: 160px" class="baise mgt8"></div>
+            <div style="height: 160px" class="baise mgt8"></div>
+            <div style="height: 160px" class="baise mgt8"></div>
+            <div style="height: 160px" class="baise mgt8"></div>
+            <div style="height: 160px" class="baise mgt8"></div>
+          </div>
+        </div>
+        <!-- you边-->
+        <div style="flex: 1" class="youqu flex column mgr8 mgt8">
+          <!-- 提示区 -->
+          <div style="height: 150px" class="baise"></div>
+          <!-- 消息区 -->
+          <div style="height: 300px" class="baise mgt8"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
