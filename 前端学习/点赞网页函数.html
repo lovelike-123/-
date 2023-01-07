@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>点赞</title>
+  </head>
+  <body>
+    <button id="dzs" onclick="dianzan()">0</button>
+    <script>
+      function dianzan() {
+        let dianzanshubiaoqian = window.document.getElementById("dzs");
+        let dianzansu = parseInt(dianzanshubiaoqian.innerText);
+        let xinhsuzi = dianzansu + 1;
+        dianzanshubiaoqian.innerText = xinhsuzi;
+        return 0;
+      }
+    </script>
+  </body>
+</html>
