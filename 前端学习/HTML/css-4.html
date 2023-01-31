@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .niv {
+        width: 1226px;
+        height: 100px;
+        background-color: rgb(107, 107, 222);
+        margin: 50px auto;
+        margin-bottom: 5px;
+
+        text-align: center;
+        line-height: 100px;
+        font-size: 50px;
+      }
+      .box {
+        width: 1226px;
+        height: 614px;
+        background-color: #f5f5f5;
+        margin: 0 auto;
+      }
+      .left {
+        float: left;
+
+        width: 234px;
+        height: 614px;
+        background-color: #800080;
+      }
+      .right {
+        float: right;
+
+        width: 978px;
+        height: 614px;
+        /* background-color: rgb(200, 101, 101); */
+      }
+      ul {
+        list-style: none;
+      }
+      .box .right li {
+        float: left;
+
+        width: 234px;
+        height: 300px;
+        background-color: #87ceeb;
+        margin-right: 14px;
+        margin-bottom: 14px;
+        text-align: center;
+        line-height: 300px;
+      }
+      .box .right li:nth-child(4n) {
+        margin: 0;
+      }
+      .box .right li a {
+        display: inline-block;
+
+        width: 234px;
+        height: 300px;
+        color: black;
+
+        font-size: 40px;
+        text-decoration: none;
+      }
+      .box .right li a:hover {
+        color: aqua;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 导航 -->
+    <div class="niv">
+      <h2>导航</h2>
+    </div>
+    <!-- 内容 -->
+    <div class="box">
+      <!-- 左盒子 -->
+      <div class="left"></div>
+      <!-- 右盒子 -->
+      <div class="right">
+        <ul>
+          <li><a href="https://www.taobao.com/" target="_blank">淘宝</a></li>
+          <li><a href="https://www.jd.com/" target="_blank">京东</a></li>
+          <li><a href="https://www.baidu.com/" target="_blank">百度</a></li>
+          <li><a href="https://www.sogou.com/" target="_blank">搜狗</a></li>
+          <li><a href="\web\前端学习\HTML\css-3.html">跳转</a></li>
+          <li><a href="#">没啥用</a></li>
+          <li><a href="#">没啥用</a></li>
+          <li><a href="#">占位子</a></li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
