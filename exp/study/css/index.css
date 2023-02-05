@@ -332,3 +332,56 @@ body {
 .box_2 p span {
   color: orange;
 }
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+.jiao {
+  background-color: #fff;
+  margin-top: 40px;
+  height: 417px;
+}
+.jiao .wrapper {
+  padding: 30px;
+}
+.jiao .wrapper .left {
+  float: left;
+}
+.jiao .wrapper .left p {
+  margin: 20px 0;
+  font-size: 12px;
+  color: #666;
+}
+.jiao .wrapper .left a {
+  display: inline-block;
+  width: 120px;
+  height: 36px;
+  border: solid 1px #00a4ff;
+  font-size: 16px;
+  color: #00a4ff;
+  text-align: center;
+  line-height: 34px;
+}
+.jiao .wrapper .right {
+  float: right;
+}
+.jiao .wrapper .right dl {
+  float: left;
+  margin-left: 120px;
+}
+.jiao .wrapper .right dl dt {
+  margin-bottom: 14px;
+  font-size: 16px;
+  color: #666;
+}
+.jiao .wrapper .right dl a {
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 21px;
+  color: #333;
+}

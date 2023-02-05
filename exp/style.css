@@ -107,3 +107,11 @@ hr {
   border: none;
   height: 1px;
 }
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
