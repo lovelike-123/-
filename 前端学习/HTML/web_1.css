@@ -1,0 +1,37 @@
+/* 布局小鸡技巧 */
+* {
+  /* border: 1px solid black; */
+}
+body {
+  margin: 0;
+  /* 浏览器多高，body就多大 */
+  height: 100vh;
+  background-color: #eee;
+}
+.flex {
+  display: flex;
+}
+.baishe {
+  background-color: #fff;
+  box-shadow: 0 8px 8px rgba(10, 16, 20, 0.24), 0 0 8px rgba(10, 16, 20, 0.12);
+  text-decoration: none;
+}
+.flex_1 {
+  flex: 1;
+}
+.colum {
+  flex-direction: column;
+}
+.mg_8 {
+  margin: 8px;
+}
+.mgr_8 {
+  margin-right: 8px;
+}
+.mgt_8 {
+  margin-top: 8px;
+}
+.yingyin {
+  box-shadow: 0 8px 8px rgba(10, 16, 20, 0.24), 0 0 8px rgba(10, 16, 20, 0.12);
+  text-decoration: none;
+}
