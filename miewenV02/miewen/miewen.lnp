@@ -1,0 +1,8 @@
+"STARTUP.obj",
+"main.obj",
+"ws2812.obj",
+"Common.obj",
+"Delay.obj" 
+TO "miewen" 
+RAMSIZE(256) 
+DISABLEWARNING (16) 

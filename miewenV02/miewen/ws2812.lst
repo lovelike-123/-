@@ -1,0 +1,325 @@
+C51 COMPILER V9.53.0.0   WS2812                                                            02/15/2023 15:07:21 PAGE 1   
+
+
+C51 COMPILER V9.53.0.0, COMPILATION OF MODULE WS2812
+OBJECT MODULE PLACED IN ws2812.obj
+COMPILER INVOKED BY: D:\arm\keil_c51\C51\BIN\C51.EXE Code\ws2812.c OPTIMIZE(8,SPEED) BROWSE INCDIR(.\Include) DEFINE(FOS
+                    -C_160000) DEBUG OBJECTEXTEND PRINT(.\ws2812.lst) OBJECT(ws2812.obj)
+
+line level    source
+
+   1          //#include "fy_ws2812b.h"
+   2          // 
+   3          ///*
+   4          //?????n76e003?? @16M
+   5          //1?nop                 ??87ns
+   6          //while(1)      ??194ns
+   7          //????          ??570ns
+   8          //??????,???????,??16??????????16?,
+   9          //???????????????,??????????
+  10          //*/
+  11          // 
+  12          ///*??????????????*/
+  13          ////#define BYTE_0(n)                 ((u8)((n) & (u8)0xFF))        /*!< Returns the low byte of the 32-bi
+             -t value */
+  14          ////#define BYTE_1(n)                 ((u8)(BYTE_0((n) >> (u8)8)))  /*!< Returns the second byte of the 32
+             --bit value */
+  15          ////#define BYTE_2(n)                 ((u8)(BYTE_0((n) >> (u8)16))) /*!< Returns the third byte of the 32-
+             -bit value */
+  16          ////#define BYTE_3(n)                 ((u8)(BYTE_0((n) >> (u8)24)))
+  17          ////#define enableInterrupts()  EA=1
+  18          ////#define disableInterrupts() EA=0
+  19          // 
+  20          // 
+  21          //#define delay1NOP()   _nop_();
+  22          //#define delay2NOP()   delay1NOP();_nop_();
+  23          //#define delay3NOP()   delay2NOP();_nop_();
+  24          //#define delay4NOP()   delay3NOP();_nop_();
+  25          //#define delay5NOP()   delay4NOP();_nop_();
+  26          //#define delay6NOP()   delay5NOP();_nop_();
+  27          //#define delay7NOP()   delay6NOP();_nop_();
+  28          //#define delay8NOP()   delay7NOP();_nop_();
+  29          //#define delay9NOP()   delay8NOP();_nop_();
+  30          //#define delay10NOP()  delay9NOP();_nop_();
+  31          //#define delay11NOP()  delay10NOP();_nop_();
+  32          //#define delay12NOP()  delay11NOP();_nop_();
+  33          //#define delay13NOP()  delay12NOP();_nop_();
+  34          //#define delay14NOP()  delay13NOP();_nop_();
+  35          //#define delay15NOP()  delay14NOP();_nop_();
+  36          // 
+  37          // 
+  38          // 
+  39          //#define RGB_PIN_H() P06 = 1
+  40          //#define RGB_PIN_L() P06 = 0
+  41          // 
+  42          //void Ws2812b_Configuration(void)
+  43          //{
+  44          //    P0M1 &= ~(1<<6);
+  45          //    P0M2 |= (1<<6);
+  46          //    RGB_PIN_L();
+  47          //}
+  48          // 
+  49          //#if 0
+  50          //static void Ws2812b_Write0(void)
+  51          //{
+C51 COMPILER V9.53.0.0   WS2812                                                            02/15/2023 15:07:21 PAGE 2   
+
+  52          //    RGB_PIN_H();
+  53          //    delay6NOP();
+  54          //    RGB_PIN_L();
+  55          //    
+  56          //}
+  57          // 
+  58          //static void Ws2812b_Write1(void)
+  59          //{
+  60          //    RGB_PIN_H();
+  61          //    delay12NOP();
+  62          //    
+  63          //    RGB_PIN_L();
+  64          //}
+  65          // 
+  66          //static void Ws2812b_WriteByte(u8 byte)
+  67          //{
+  68          //      if(byte & 0x80)
+  69          //              Ws2812b_Write1();
+  70          //      else
+  71          //              Ws2812b_Write0();
+  72          //      if(byte & 0x40) 
+  73          //              Ws2812b_Write1();
+  74          //      else
+  75          //              Ws2812b_Write0();
+  76          //      if(byte & 0x20)
+  77          //              Ws2812b_Write1();
+  78          //      else
+  79          //              Ws2812b_Write0();
+  80          //      if(byte & 0x10)
+  81          //              Ws2812b_Write1();
+  82          //      else
+  83          //              Ws2812b_Write0();
+  84          //      if(byte & 0x8)
+  85          //              Ws2812b_Write1();
+  86          //      else
+  87          //              Ws2812b_Write0();
+  88          //      if(byte & 0x4)         
+  89          //              Ws2812b_Write1();
+  90          //      else
+  91          //              Ws2812b_Write0();
+  92          //      if(byte & 0x2)         
+  93          //              Ws2812b_Write1();
+  94          //      else
+  95          //              Ws2812b_Write0();
+  96          //      if(byte & 0x1)         
+  97          //              Ws2812b_Write1();
+  98          //      else
+  99          //              Ws2812b_Write0();
+ 100          //}
+ 101          //#else
+ 102          //static void Ws2812b_WriteByte(u8 byte)
+ 103          //{
+ 104          //      if(byte & 0x80){
+ 105          //        RGB_PIN_H();
+ 106          //        delay10NOP();
+ 107          //        RGB_PIN_L();
+ 108          //    }
+ 109          //      else{      
+ 110          //        RGB_PIN_H();
+ 111          //        delay4NOP();
+ 112          //        RGB_PIN_L();
+ 113          //        delay4NOP();
+C51 COMPILER V9.53.0.0   WS2812                                                            02/15/2023 15:07:21 PAGE 3   
+
+ 114          //    } 
+ 115          //    if(byte & 0x40){
+ 116          //        RGB_PIN_H();
+ 117          //        delay10NOP();
+ 118          //        RGB_PIN_L();
+ 119          //    }
+ 120          //      else{      
+ 121          //        RGB_PIN_H();
+ 122          //        delay4NOP();
+ 123          //        RGB_PIN_L();
+ 124          //        delay4NOP();
+ 125          //    } 
+ 126          //      if(byte & 0x20){
+ 127          //        RGB_PIN_H();
+ 128          //        delay10NOP();
+ 129          //        RGB_PIN_L();
+ 130          //    }
+ 131          //      else{      
+ 132          //        RGB_PIN_H();
+ 133          //        delay4NOP();
+ 134          //        RGB_PIN_L();
+ 135          //        delay4NOP();
+ 136          //    } 
+ 137          //      if(byte & 0x10){
+ 138          //        RGB_PIN_H();
+ 139          //        delay10NOP();
+ 140          //        RGB_PIN_L();
+ 141          //    }
+ 142          //      else{      
+ 143          //        RGB_PIN_H();
+ 144          //        delay4NOP();
+ 145          //        RGB_PIN_L();
+ 146          //        delay4NOP();
+ 147          //    } 
+ 148          //      if(byte & 0x8) {
+ 149          //        RGB_PIN_H();
+ 150          //        delay10NOP();
+ 151          //        RGB_PIN_L();
+ 152          //    }
+ 153          //      else{      
+ 154          //        RGB_PIN_H();
+ 155          //        delay4NOP();
+ 156          //        RGB_PIN_L();
+ 157          //        delay4NOP();
+ 158          //    } 
+ 159          //      if(byte & 0x4) {
+ 160          //        RGB_PIN_H();
+ 161          //        delay10NOP();
+ 162          //        RGB_PIN_L();
+ 163          //    }
+ 164          //      else{      
+ 165          //        RGB_PIN_H();
+ 166          //        delay4NOP();
+ 167          //        RGB_PIN_L();
+ 168          //        delay4NOP();
+ 169          //    } 
+ 170          //      if(byte & 0x2) {
+ 171          //        RGB_PIN_H();
+ 172          //        delay10NOP();
+ 173          //        RGB_PIN_L();
+ 174          //    }
+ 175          //      else{      
+C51 COMPILER V9.53.0.0   WS2812                                                            02/15/2023 15:07:21 PAGE 4   
+
+ 176          //        RGB_PIN_H();
+ 177          //        delay4NOP();
+ 178          //        RGB_PIN_L();
+ 179          //        delay4NOP();
+ 180          //    } 
+ 181          //      if(byte & 0x1) {
+ 182          //        RGB_PIN_H();
+ 183          //        delay10NOP();
+ 184          //        RGB_PIN_L();
+ 185          //    }
+ 186          //      else{      
+ 187          //        RGB_PIN_H();
+ 188          //        delay4NOP();
+ 189          //        RGB_PIN_L();
+ 190          //        delay4NOP();
+ 191          //    } 
+ 192          //}
+ 193          // 
+ 194          //#endif
+ 195          // 
+ 196          //void Ws2812b_Write(u32 color)
+ 197          //{
+ 198          //    Ws2812b_WriteByte(BYTE_1(color));//green
+ 199          //    Ws2812b_WriteByte(BYTE_2(color));//red
+ 200          //    Ws2812b_WriteByte(BYTE_0(color));//blue
+ 201          //}
+ 202          // 
+ 203          ///*********************************************?????***********************************************/
+ 204          // 
+ 205          ////??????
+ 206          ////color:??(????)
+ 207          ////num  :???led??
+ 208          //void RGB_Refresh(u32 color,u8 num){
+ 209          //      disableInterrupts();
+ 210          //      while(num--){
+ 211          //              Ws2812b_Write(color);
+ 212          //      }
+ 213          //      enableInterrupts();
+ 214          //}
+ 215          // 
+ 216          ////?????
+ 217          ////color:??(????)
+ 218          ////num  :???led??
+ 219          ////speed:??(??ms)
+ 220          //void RGB_Cycle(u32 color,u8 num,u16 speed)
+ 221          //{
+ 222          //      u8 i;
+ 223          //      for(i=1;i<=num;i++){            //????          
+ 224          //              RGB_Refresh(color,i);
+ 225          //              Delay_ms(speed);
+ 226          //      }
+ 227          //      for(i=1;i<=num;i++){            //?
+ 228          //              RGB_Refresh(0,i);
+ 229          //              Delay_ms(speed);
+ 230          //      }
+ 231          //}
+ 232          // 
+ 233          ////?????
+ 234          ////color:??(????)
+ 235          ////num  :???led??
+ 236          ////speed:??(??ms)
+ 237          //void RGB_Wave(u32 color,u8 num,u16 speed)
+C51 COMPILER V9.53.0.0   WS2812                                                            02/15/2023 15:07:21 PAGE 5   
+
+ 238          //{
+ 239          //      u32 color_step=0;
+ 240          //      u32 color_temp = color;
+ 241          //      color_step |= (BYTE_2(color)?0x010000:0x000000);
+ 242          //      color_step |= (BYTE_1(color)?0x000100:0x000000);
+ 243          //      color_step |= (BYTE_0(color)?0x000001:0x000000);
+ 244          // 
+ 245          //      while(//???????????
+ 246          //                      BYTE_2(color_temp)>=BYTE_2(color_step) &&
+ 247          //                      BYTE_1(color_temp)>=BYTE_1(color_step) &&
+ 248          //                      BYTE_0(color_temp)>=BYTE_0(color_step)
+ 249          //              ){
+ 250          //              color_temp-=color_step;
+ 251          //      }
+ 252          //      
+ 253          //      while(          //????  
+ 254          //                      BYTE_2(color_temp)<0xff &&
+ 255          //                      BYTE_1(color_temp)<0xff &&
+ 256          //                      BYTE_0(color_temp)<0xff
+ 257          //               )      {
+ 258          //              color_temp+=color_step;
+ 259          //              RGB_Refresh(color_temp,num);
+ 260          //              Delay_ms(speed);
+ 261          //      }       
+ 262          //      while(//????
+ 263          //                      BYTE_2(color_temp)>=BYTE_2(color_step) &&
+ 264          //                      BYTE_1(color_temp)>=BYTE_1(color_step) &&
+ 265          //                      BYTE_0(color_temp)>=BYTE_0(color_step)
+ 266          //              ){
+ 267          //              color_temp-=color_step;
+ 268          //              RGB_Refresh(color_temp,num);
+ 269          //              Delay_ms(speed);
+ 270          //      }
+ 271          //      RGB_Refresh(0,num);
+ 272          //}
+ 273          ////?????
+ 274          ////color:??(????)
+ 275          ////num  :???led??
+ 276          ////speed:??(??ms)
+ 277          ////cnt  :????
+ 278          //void RGB_Flash(u32 color,u8 num,u16 speed,u8 cnt)
+ 279          //{
+ 280          //      while(cnt--){
+ 281          //              RGB_Refresh(color,num);
+ 282          //              Delay_ms(speed);
+ 283          //              RGB_Refresh(0,num);
+ 284          //              Delay_ms(speed);
+ 285          //      }
+ 286          //}
+ 287          // 
+ 288          ///*********************************************END OF FILE**********************************************/
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   ----    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+C51 COMPILER V9.53.0.0   WS2812                                                            02/15/2023 15:07:21 PAGE 6   
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
